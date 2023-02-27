@@ -40,10 +40,14 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(gelenarray){
+   let copied = [...gelenarray]
+   return copied
+
 }
 
+let kopyalanan = kopyala(orijinalTatlar)
+console.log(kopyalanan)
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,9 +60,14 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(kontrol){
+  let uzunluKontrol = kontrol.length == 25
+  console.log(uzunluKontrol)
+  
 }
+dizi25Cesitmi(orijinalTatlar)
+
+
 
 
 /* Görev 3:
@@ -74,9 +83,13 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(tatlar, eklenecek){
+ tatlar.unshift(eklenecek)
+ console.log(tatlar)
 }
+
+
+cesitEkle(orijinalTatlar, "Kakule")
 
 
 /* Cörev 4:
@@ -92,9 +105,12 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(cesitler){
+  cesitler.pop()
+  return cesitler
+  
 }
+ console.log(sonCesitiKaldir(orijinalTatlar))
 
 
 /* Görev 5:
@@ -108,10 +124,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar , i){
+ return tatlar[i]
+ 
 }
-
+console.log(indekstekiCesitiGetir(orijinalTatlar, 5))
 
 /* Görev 6:
 
@@ -128,11 +145,11 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar , lezzet){
+  //lezzet.indexof()
 }
 
-
+console.log(ismeGoreCesitCikar(orijinalTatlar,"Ahududu"))
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
@@ -188,49 +205,53 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata"
+]
+
+const mevsimlikTatlar = [
+"Pekan",
+"Kaju",
+"Çikolatalı Mousse",
+"Fransız Vanilyası",
+"Yumurta",
+"Alman çikolatası",
+"Kek üzerine krema",
+"Hindistan Cevizi",
+"Kaymaklı Biskuvi",
+"Beyaz Çikolata",
+"Mango"
+]
+
+const bolgeselTatlar = [
+"Kaymak",
+"Karpuz",
+"Karadut",
+"Turunç",
+"Portakal",
+"Yogurt",
+"Krem Peynir",
+"Kakao",
+"Karamel macchiato",
+"Kuru üzüm",
+"Peynir",
+"Karamel"
+]
 
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+function rastgeleTatlar(){
+   let buyukDizi = [...orijinalTatlar, ...yeniTatlar,...mevsimlikTatlar, ...bolgeselTatlar]
+   Math.floor(Math.random() * buyukDizi.length);
+   console.log(Math.floor(Math.random() * buyukDizi.length))
 }
+rastgeleTatlar()
 
-// NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
+//NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
-
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
